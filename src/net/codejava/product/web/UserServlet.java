@@ -58,9 +58,11 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    //changing listUser to listProduct creates local error 
+    //in the method below
     private void listUser(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, IOException, ServletException {
-        List<User> listUser = userDAO.selectAllUsers();
+        List<User> listUser = userDAO.selectAllProducts();
         request.setAttribute("listUser", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
         dispatcher.forward(request, response);
@@ -100,14 +102,14 @@ public class UserServlet extends HttpServlet {
         String quantity = request.getParameter("quantity");
 
         User book = new User(id, brand, name, quantity);
-        userDAO.updateUser(book);
+        userDAO.updateProduct(book);
         response.sendRedirect("list");
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        userDAO.deleteUser(id);
+        userDAO.deleteProduct(id);
         response.sendRedirect("list");
 
     }

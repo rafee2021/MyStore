@@ -7,16 +7,16 @@ public class User {
 	protected String name;
 	protected String quantity;
 
-	public User(String brand, String name, String quantity) {
+	public User(int id, String brand, String name, String quantity) {
 		super();
+		this.id = id;
 		this.brand = brand;
 		this.name = name;
 		this.quantity = quantity;
 	}
-	
-	public User(int id, String brand, String name, String quantity) {
+
+	public User(String brand, String name, String quantity) {
 		super();
-		this.id = id;
 		this.brand = brand;
 		this.name = name;
 		this.quantity = quantity;
